@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .carousel {
+        width: 100%;
+        overflow: scroll;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .carousel__container {
+        white-space: nowrap;
+        margin: 50px 0px;
+        padding-bottom: 10px;
+      }
+
+      .carousel-item {
+        background: slateblue;
+        width: 200px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+        display: inline-block;
+        cursor: pointer;
+        transition: 400ms all;
+        transform-origin: center left;
+        position: relative;
+      }
+
+      .carousel-item:hover ~ .carousel-item {
+        transform: translate3d(100px, 0, 0);
+      }
+
+      .carousel__container:hover .carousel-item {
+        opacity: 0.3;
+      }
+
+      .carousel__container:hover .carousel-item:hover {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+
+      .carousel-item img {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .carousel-item__details {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        font-size: 10px;
+        opacity: 1;
+        transition: 450ms opacity;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        color: #e5e5e5;
+      }
+
+      .carousel-item__details--image {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="carousel">
+      <div class="carousel__container">
+        <div class="carousel-item">
+          <img
+            class="carousel-item__image"
+            src="https://images.pexels.com/photos/39853/woman-girl-freedom-happy-39853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="sunset beach woman"
+          />
+          <div class="carousel-item__details">
+            <div>
+              <img
+                class="carousel-item__details--image"
+                src="./boton-de-play.png"
+                alt="iniciar reproduccion"
+              />
+              <img
+                class="carousel-item__details--image"
+                src="./mas.png"
+                alt="agregar"
+              />
+            </div>
+            <p class="carousel-item__details--title">Titulo</p>
+            <p class="carousel-item__details--subtitle">2020 +16 114 minutos</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="carousel-item__image"
+            src="https://images.pexels.com/photos/1066176/pexels-photo-1066176.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="man raisin both hands"
+          />
+          <div class="carousel-item__details"></div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

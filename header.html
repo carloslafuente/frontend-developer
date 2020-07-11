@@ -8,50 +8,8 @@
     <style>
       body {
         margin: 0;
+        min-height: 100vh;
         font-family: Arial, Helvetica, sans-serif;
-      }
-
-      header {
-        width: 100%;
-        height: 80px;
-        background-color: #14213d;
-        color: #e5e5e5;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      header img {
-        height: 70px;
-        width: auto;
-        margin-left: 20px;
-      }
-
-      header ul {
-        list-style: none;
-        display: inline-flex;
-        flex-flow: row;
-        margin-right: 20px;
-      }
-
-      header ul li {
-        display: inline;
-        margin: 0 5px;
-      }
-
-      header ul li a {
-        text-decoration: none;
-        color: #e5e5e5;
-        transition: ease-in-out 0.5s;
-      }
-
-      header ul li a:hover {
-        color: #fca311;
-      }
-
-      main {
-        width: 100%;
-        height: 150vh;
         background: rgb(20, 33, 61);
         background: linear-gradient(
           180deg,
@@ -61,24 +19,147 @@
           rgba(69, 123, 157, 1) 100%
         );
       }
+
+      .header {
+        width: 100%;
+        height: 100px;
+        color: #e5e5e5;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .header__img {
+        height: 90px;
+        width: auto;
+        padding: 5px 20px;
+        box-sizing: border-box;
+      }
+
+      .header__menu {
+        list-style: none;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+      }
+
+      .header__menu--position-top-right {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .header__menu--position-top-right img {
+        width: 40px;
+      }
+
+      .header__menu--position-top-right p {
+        margin: 0 0 0 10px;
+      }
+
+      .header__menu:hover .header__menu--position-top-right-display-none,
+      .header__menu--position-top-right-display-none:hover {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .header__menu--position-top-right-display-none {
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear;
+      }
+
+      .header__menu--position-top-right-display-none ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .header__menu--position-top-right-display-none ul li {
+        margin: 10px 0;
+        text-align: right;
+      }
+
+      .header__menu--position-top-right-display-none ul li:hover a {
+        color: #fca311;
+        text-decoration: underline;
+      }
+
+      .header__menu--position-top-right-display-none ul li a {
+        color: #e5e5e5;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .main {
+        height: 300px;
+      }
+
+      .main__title {
+        color: #e5e5e5;
+        font-size: 30px;
+      }
+
+      .input {
+        width: 60%;
+        height: 50px;
+        max-width: 500px;
+        min-width: 300px;
+        border: 2px solid #e5e5e5;
+        border-radius: 25px;
+        box-sizing: border-box;
+        font-size: 20px;
+        padding: 0 20px;
+        color: #e5e5e5;
+        background-color: rgb(255, 255, 255, 0.1);
+        outline: 0;
+      }
+
+      input::placeholder {
+        color: #e5e5e5;
+      }
     </style>
   </head>
   <body>
-    <header>
-      <img src="./logo_2_2.png" alt="Logo Carlos La Fuente" />
-      <ul>
-        <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="">Portfolio</a>
-        </li>
-        <li>
-          <a href="">Contact me</a>
-        </li>
-      </ul>
+    <header class="header">
+      <a href="/">
+        <img
+          class="header__img"
+          src="./logo_2_2.png"
+          alt="Logo Carlos La Fuente"
+        />
+      </a>
+      <div class="header__menu">
+        <div class="header__menu--position-top-right">
+          <img src="./user.png" alt="Imagen de perfil" />
+          <p>Perfil</p>
+        </div>
+        <div class="header__menu--position-top-right-display-none">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/account">Cuenta</a>
+            </li>
+            <li>
+              <a href="/logout">Cerrar Sesion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
-    <main></main>
-    <footer></footer>
+    <section class="main">
+      <h2 class="main__title">¿Qu&eacute; quieres ver hoy?</h2>
+      <input class="input" type="text" placeholder="Buscar" />
+    </section>
   </body>
 </html>
